@@ -38,7 +38,7 @@ Use ndjson-map to only display the ID and the name, and then grep for *Harlem*:
 
 ## Convert Space/Time data to GeoJSON
 
-Download Map Warper data, filter maps which title included *broadway*, convert to GeoJSON and copy to clipboard:
+Download Map Warper data, filter maps which title includes *broadway*, convert to GeoJSON and copy to clipboard:
 
     curl http://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.pits.ndjson | ndjson-filter 'd.name && d.name.toLowerCase().includes("broadway")' | spacetime-to-geojson | pbcopy
 
