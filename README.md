@@ -37,6 +37,13 @@ Use jq to only display the ID and the area the map depicts:
     | spacetime-to-json | \
     jq '.[] | {id: .id, area: .data.area}'
 
+Use ndjson-filter to filter Building Inspector data by year, and save the resulting GeoJSON file to disk:
+
+    curl http://s3.amazonaws.com/spacetime-nypl-org/\
+    datasets/building-inspector/building-inspector.objects.ndjson \
+    | ndjson-filter 'd.validSince > 1880' | spacetime-to-geojson > \
+    ~/Downloads/building-inspector-1880.geojson
+
 Use ndjson-map to only display the ID and the name, and then grep for *Harlem*:
 
     curl http://s3.amazonaws.com/spacetime-nypl-org/\
