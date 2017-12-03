@@ -6,13 +6,13 @@ This repository lists resources useful when working with [NYC Space/Time Directo
 
 See http://spacetime.nypl.org/#data
 
-## Ontology
+## Data Model & JSON Schemas
 
-See https://github.com/nypl-spacetime/ontology
+See https://github.com/nypl-spacetime/spacetime-schemas
 
 ## Tools
 
-- Space/Time command line tools: https://github.com/nypl-spacetime/spacetime-cli
+- Command line tools: https://github.com/nypl-spacetime/spacetime-cli
 
 ## Examples
 
@@ -20,11 +20,11 @@ The examples below use the following tools:
 
 - [jq](https://stedolan.github.io/jq/): command-line JSON processor, install with `brew install jq`
 - [ndjson-cli](https://github.com/mbostock/ndjson-cli): command-line tools for operating on newline-delimited JSON streams, install with `npm install -g ndjson-cli`
-- [spacetime-cli](https://github.com/nypl-spacetime/spacetime-cli): command-line tools for Space/Time data, install with `npm install -g nypl-spacetime/spacetime-cli`
+- [spacetime-cli](https://github.com/nypl-spacetime/spacetime-cli): command-line tools for NYC Space/Time Directory data, install with `npm install -g nypl-spacetime/spacetime-cli`
 
-## Convert Space/Time data to JSON
+### Convert Data to JSON
 
-Download Space/Time [Map Warper](http://maps.nypl.org) data and convert to JSON array:
+Download [Map Warper](http://maps.nypl.org/warper) data from the NYC Space/Time Directory and convert to a JSON array:
 
     curl http://s3.amazonaws.com/spacetime-nypl-org/\
     datasets/mapwarper/mapwarper.objects.ndjson \
@@ -50,7 +50,7 @@ Use ndjson-map to only display the ID and the name, and then grep for *Harlem*:
     datasets/mapwarper/mapwarper.objects.ndjson \
     | ndjson-map '`${d.id} - ${d.name}`' | grep Harlem
 
-## Convert Space/Time data to GeoJSON
+### Convert data to GeoJSON
 
 Download Map Warper data, filter maps which title includes *broadway*, convert to GeoJSON and copy to clipboard:
 
